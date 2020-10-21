@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcTemp", "CalcTemp.csproj", "{6475DD76-F39A-405E-A25C-FF17576AD3CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6475DD76-F39A-405E-A25C-FF17576AD3CD}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{6475DD76-F39A-405E-A25C-FF17576AD3CD}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{6475DD76-F39A-405E-A25C-FF17576AD3CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6475DD76-F39A-405E-A25C-FF17576AD3CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8A98B22-3EDB-4765-84A0-87013F443D3E}
+	EndGlobalSection
+EndGlobal
