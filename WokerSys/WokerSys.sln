@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WokerSys", "WokerSys.csproj", "{74783F99-841A-4575-8428-4342DA44EA2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74783F99-841A-4575-8428-4342DA44EA2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74783F99-841A-4575-8428-4342DA44EA2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74783F99-841A-4575-8428-4342DA44EA2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74783F99-841A-4575-8428-4342DA44EA2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B92D22AC-D6A5-493D-98FE-DD443FE0419A}
+	EndGlobalSection
+EndGlobal
