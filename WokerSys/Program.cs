@@ -21,7 +21,7 @@ namespace WokerSys
             Worker worker = new Worker(name, level, baseSalary);
             Console.Write("How many contracts to this worker? ");
             int N = int.Parse(Console.ReadLine());
-            for(int i = 0; i < N; i++)
+            for (int i = 0; i < N; i++)
             {
                 Console.WriteLine("Enter " + (i + 1) + "# contract data:");
                 Console.Write("Date(DD/MM/YYYY): ");
@@ -40,7 +40,7 @@ namespace WokerSys
             Console.WriteLine("Name: " + worker.Name);
             Console.WriteLine("Department: " + department.Name);
             double income = worker.income(date2);
-            Console.WriteLine("Income for " + date2.ToString("MM/yyyy") + ":" + " " + income);
+            Console.WriteLine("Income for " + date2.ToString("MM/yyyy") + ":" + " " + "R$" + income);
         }
     }
 }
