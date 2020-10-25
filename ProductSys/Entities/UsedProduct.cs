@@ -15,7 +15,7 @@ namespace ProductSys.Entities
 
         public override string priceTag()
         {
-            return Name + "(Used) $ " + Price + " (Manufacture date: " + ManufactureDate.ToString("dd/MM/yyyy)");
+            return Name + "(Used) $ " + Price.ToString("F2") + " (Manufacture date: " + ManufactureDate.ToString("dd/MM/yyyy)");
         }
     }
 }
