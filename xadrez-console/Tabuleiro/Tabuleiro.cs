@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using xadrez_console.tabuleiro;
 
 namespace tabuleiro
 {
@@ -22,10 +23,44 @@ namespace tabuleiro
             return pecas[linha, coluna];
         }
 
+        public Peca peca(Posicao pos)
+        {
+            return pecas[pos.Linha, pos.Coluna];
+        }
+
+        public bool existePeca(Posicao pos)
+        {
+            validarPosicao(pos);
+            return peca(pos) != null;
+        }
+
         public void colocarPeca(Peca p, Posicao pos)
         {
+            if (existePeca(pos))
+            {
+                throw new TabuleiroException("Ja existe uma peça!");
+            }
+               
             pecas[pos.Linha, pos.Coluna] = p;
             p.posicao = pos;
+        }
+
+        public bool PosValida(Posicao pos)
+        {
+            if (pos.Linha < 0 || pos.Linha >= linhas || pos.Coluna <0 || pos.Coluna >= colunas)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public void validarPosicao(Posicao pos)
+        {
+            if (!PosValida(pos))
+            {
+                throw new TabuleiroException("Posição invalida!");
+            }
         }
     }
 }
