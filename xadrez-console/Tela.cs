@@ -18,7 +18,19 @@ namespace xadrez_console
             Console.WriteLine();
             imprimirPecasCapturadas(partida);
             Console.WriteLine("Turno: " + partida.turno);
-            Console.WriteLine("Aguardando a jogada: " + partida.JogadorAtual);
+            if (!partida.terminada)
+            {
+                Console.WriteLine("Aguardando a jogada: " + partida.JogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("Xeque!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor: " + partida.JogadorAtual);
+            }
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
@@ -37,12 +49,12 @@ namespace xadrez_console
         public static void imprimirConjunto(HashSet<Peca> conjunto)
         {
             Console.Write("[");
-            foreach(Peca x in conjunto)
+            foreach (Peca x in conjunto)
             {
                 Console.Write(x + " ");
             }
             Console.Write("]");
-            Console.WriteLine() ;
+            Console.WriteLine();
         }
         public static void imprimirTabuleiro(Tabuleiro tab)
         {
@@ -83,7 +95,7 @@ namespace xadrez_console
                     {
                         Console.BackgroundColor = aux;
                     }
-             
+
                     imprimirPeca(tab.peca(i, j));
                     Console.BackgroundColor = aux;
 
@@ -97,7 +109,7 @@ namespace xadrez_console
             }
             Console.BackgroundColor = aux;
             Console.WriteLine("  a b c d e f g h");
-            
+
         }
 
         public static PosicaoXadrez lerPosicaoXadrez()
@@ -131,7 +143,7 @@ namespace xadrez_console
                 Console.Write(" ");
             }
 
-            
+
         }
     }
 }
