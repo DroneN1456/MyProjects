@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Interface1.Services
 {
-    class Paypal : PaymentService
+    class Paypal : IPaymentService
     {
 
         public double Tax(double amount, int month)

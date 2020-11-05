@@ -12,9 +12,9 @@ namespace Interface1.Entities
         private DateTime _date;
         double totalValue { get; set; }
         public List<Installment> installments = new List<Installment>();
-        private PaymentService _paymentService;
+        private IPaymentService _paymentService;
 
-        public Contract(int number, DateTime date, double totalValue, PaymentService paymentService)
+        public Contract(int number, DateTime date, double totalValue, IPaymentService paymentService)
         {
             this.number = number;
             this.date = date;

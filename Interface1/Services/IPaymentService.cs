@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Interface1.Services
 {
-    interface PaymentService
+    interface IPaymentService
     {
         public double Tax(double amount, int month);
     }
