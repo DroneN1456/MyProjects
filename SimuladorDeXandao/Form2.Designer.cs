@@ -39,6 +39,7 @@
             this.tDano = new System.Windows.Forms.Timer(this.components);
             this.btnAtacar = new System.Windows.Forms.Button();
             this.tFinal = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,6 +136,17 @@
             this.tFinal.Interval = 3000;
             this.tFinal.Tick += new System.EventHandler(this.tFinal_Tick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(753, -2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 24);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "X";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,6 +154,7 @@
             this.BackgroundImage = global::SimuladorDeXandao.Properties.Resources.terraplana;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(777, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAtacar);
             this.Controls.Add(this.lblSuaVida);
             this.Controls.Add(this.progressBar2);
@@ -171,5 +184,6 @@
         private System.Windows.Forms.Timer tDano;
         private System.Windows.Forms.Button btnAtacar;
         private System.Windows.Forms.Timer tFinal;
+        private System.Windows.Forms.Label label2;
     }
 }
