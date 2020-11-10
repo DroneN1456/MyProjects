@@ -15,8 +15,8 @@ namespace SimuladorDeXandao
 {
     public partial class Form1 : Form
     {
-        public double dinheiro = 10000;
-        public double viewers = 10000;
+        public double dinheiro = 0;
+        public double viewers = 0;
         public int timerSeconds = 0;
         public int multiplicador = 1;
         public bool isFinished = false;
