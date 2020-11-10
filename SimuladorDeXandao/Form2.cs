@@ -38,6 +38,7 @@ namespace SimuladorDeXandao
         private void Form2_Load(object sender, EventArgs e)
         {
             soundPlayer.Stream = Properties.Resources.onmyown;
+            soundPlayer.Play();
             using (StreamReader sr = new StreamReader(pathConfig))
             {
                 for (int i = 0; i <= 1; i++)
@@ -84,7 +85,6 @@ namespace SimuladorDeXandao
                 progressBar2.Value = 0;
                 lblSuaVida.Text = "0/1000";
                 MessageBox.Show("Voce perdeu!", ":(", MessageBoxButtons.OK);
-                File.WriteAllText(pathConfig, "");
                 writeConfig(tentativas + 1);
                 Application.Exit();
             }
