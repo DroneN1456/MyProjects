@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Media;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,15 +18,35 @@ namespace SimuladorDeXandao
 
         public int vidaFeminista = 1000;
         public int vida = 1000;
-        SoundPlayer soundPlayer = new SoundPlayer(SimuladorDeXandao.Properties.Resources.onmyown);
+        string[] lines = new string[2];
+        string[] tent;
+        int tentativas = 0;
+        string path;
+        string pathConfig;
+
+
+        SoundPlayer soundPlayer = new SoundPlayer();
+
         public Form2()
         {
             InitializeComponent();
+            path = (Application.StartupPath + @"\Config");
+            pathConfig = (path + @"\easymode.cfg");
+            initializeMyFiles();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            soundPlayer.Play();
+            soundPlayer.Stream = Properties.Resources.onmyown;
+            using (StreamReader sr = new StreamReader(pathConfig))
+            {
+                for (int i = 0; i <= 1; i++)
+                {
+                    lines[i] = sr.ReadLine();
+                }
+            }
+            tent = lines[1].Split(':');
+            tentativas = int.Parse(tent[1]);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -56,15 +78,17 @@ namespace SimuladorDeXandao
         {
             tUpdate.Enabled = false;
             tDano.Enabled = false;
-            if(vida <= 0)
+            if (vida <= 0)
             {
+               
                 progressBar2.Value = 0;
                 lblSuaVida.Text = "0/1000";
                 MessageBox.Show("Voce perdeu!", ":(", MessageBoxButtons.OK);
+                File.WriteAllText(pathConfig, "");
+                writeConfig(tentativas + 1);
                 Application.Exit();
-
             }
-            if(vidaFeminista <= 0)
+            if (vidaFeminista <= 0)
             {
                 lblVida.Visible = false;
                 progressBar1.Visible = false;
@@ -72,6 +96,18 @@ namespace SimuladorDeXandao
                 label1.Visible = false;
                 soundPlayer.Stop();
                 tFinal.Enabled = true;
+                tentativas = 0;
+                writeConfig(0);
+            }
+        }
+
+        private void writeConfig(double tentativas)
+        {
+            File.WriteAllText(pathConfig, "");
+            using (StreamWriter sw = File.AppendText(pathConfig))
+            {
+                sw.WriteLine("//Se \"Tentativas\" for maior que 3, o easymode é ativado :)");
+                sw.WriteLine("Tentativas:" + tentativas);
             }
         }
 
@@ -89,9 +125,15 @@ namespace SimuladorDeXandao
 
         private void btnAtacar_Click(object sender, EventArgs e)
         {
+
+
             if (vidaFeminista <= 0)
             {
                 finalpartida();
+            }
+            if (tentativas > 3)
+            {
+                vidaFeminista -= 10;
             }
             else
             {
@@ -112,6 +154,17 @@ namespace SimuladorDeXandao
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void initializeMyFiles()
+        {
+
+            Directory.CreateDirectory(path);
+            if (!File.Exists(pathConfig))
+            {
+                File.WriteAllText(pathConfig, Properties.Resources.easymode);
+            }
+
         }
     }
 }

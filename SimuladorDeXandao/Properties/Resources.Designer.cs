@@ -70,6 +70,16 @@ namespace SimuladorDeXandao.Properties {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a //Se &quot;Tentativas&quot; for maior que 3, o easymode é ativado :)
+        ///Tentativas:0.
+        /// </summary>
+        internal static string easymode {
+            get {
+                return ResourceManager.GetString("easymode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap feminista {

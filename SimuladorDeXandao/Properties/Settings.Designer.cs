@@ -22,5 +22,29 @@ namespace SimuladorDeXandao.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string easymode2 {
+            get {
+                return ((string)(this["easymode2"]));
+            }
+            set {
+                this["easymode2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int qntVezes {
+            get {
+                return ((int)(this["qntVezes"]));
+            }
+            set {
+                this["qntVezes"] = value;
+            }
+        }
     }
 }
