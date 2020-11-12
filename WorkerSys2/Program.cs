@@ -32,6 +32,7 @@ namespace WorkerSys2
                     additionalcharge = double.Parse(Console.ReadLine());
                     Employee employee = new OutSourceEmployee(name, hours, valueperhours, additionalcharge);
                     employees.Add(employee);
+                   
                 }
 
                 else
