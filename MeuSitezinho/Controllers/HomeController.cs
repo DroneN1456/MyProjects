@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using MeuSitezinho.Models.ViewModels;
 
 namespace MeuSitezinho.Controllers
 {
@@ -25,6 +26,7 @@ namespace MeuSitezinho.Controllers
 
         public IActionResult Privacy()
         {
+            ViewData["Title"] = "Salve xD";
             return View();
         }
 
