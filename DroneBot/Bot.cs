@@ -72,11 +72,8 @@ namespace DroneBot
             Commands = Client.UseCommandsNext(commandsConfig);
             Commands.RegisterCommands<FunCommands>();
             Commands.RegisterCommands<TeamCommands>();
-
-            
-
-
-
+            Commands.RegisterCommands<UtilitaryCommands>();
+            Commands.RegisterCommands<SpecialCommands>();
             await Client.ConnectAsync();
             await Task.Delay(-1);
 
