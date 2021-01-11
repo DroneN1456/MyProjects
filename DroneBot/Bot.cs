@@ -23,6 +23,7 @@ using DSharpPlus.Entities;
 using System.IO;
 using Newtonsoft.Json;
 using DroneBot.Commands;
+using DSharpPlus.VoiceNext;
 
 namespace DroneBot
 {
@@ -31,6 +32,7 @@ namespace DroneBot
         public DiscordClient Client { get; private set; }
         public CommandsNextExtension Commands { get; private set; }
         public InteractivityExtension Interactivity { get; private set; }
+        public VoiceNextExtension voice { get; set; }
 
         public async Task RunAsync()
         {
@@ -74,6 +76,9 @@ namespace DroneBot
             Commands.RegisterCommands<TeamCommands>();
             Commands.RegisterCommands<UtilitaryCommands>();
             Commands.RegisterCommands<SpecialCommands>();
+
+            voice = Client.UseVoiceNext();
+
             await Client.ConnectAsync();
             await Task.Delay(-1);
 

@@ -23,6 +23,7 @@ namespace DroneBot.Commands
     {
 
         private bool _pedidos = false;
+        private bool _especial = false;
         public SoundPlayer sound { get; private set; } = new SoundPlayer(@"C:\Users\gugag\source\repos\DroneBot\Resources\kzkzkzk.wav");
         public bool StopTimer { get; set; } = false;
 
@@ -139,5 +140,16 @@ namespace DroneBot.Commands
             StopTimer = true;
             
         }
+
+        [Command("NomeEspecial")]
+        public async Task NomeEspecial (CommandContext ctx)
+        {
+            _especial = true;
+            while(_especial)
+            {
+               
+            }
+        }
+       
     }
 }

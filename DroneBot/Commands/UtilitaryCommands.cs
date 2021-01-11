@@ -44,20 +44,7 @@ namespace DroneBot.Commands
         {
             string date = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             await ctx.Message.DeleteAsync();
-            int count = 0;
-            string msg = string.Empty;
-            foreach (var a in message)
-            {
-                if (count != 0)
-                {
-                    msg = msg + " " + a;
-                }
-                else
-                {
-                    msg = a;
-                }
-                count++;
-            }
+            string msg = string.Join(' ', message);
             var aux = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Cyan;
             if (ctx.Member.Nickname != null)

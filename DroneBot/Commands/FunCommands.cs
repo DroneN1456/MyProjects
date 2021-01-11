@@ -24,8 +24,9 @@ namespace DroneBot.Commands
         public bool isStopped { get; private set; }
         public bool isMutadoViado { get; private set; } = false;
         public bool isFinished { get; private set; } = false;
+        public DiscordMember CurrentUser { get; private set; }
         public SoundPlayer sound { get; private set; } = new SoundPlayer(@"C:\Users\gugag\source\repos\DroneBot\Resources\kzkzkzk.wav");
-        public Dictionary<DiscordMember, IEnumerable<DiscordRole>> esperandoporcargo = new Dictionary<DiscordMember, IEnumerable<DiscordRole>>();
+        public static Dictionary<DiscordMember, IEnumerable<DiscordRole>> esperandoporcargo = new Dictionary<DiscordMember, IEnumerable<DiscordRole>>();
 
         [Command("Ping")]
         [Description("Retorna pong(Comando Basico)")]
@@ -48,12 +49,24 @@ namespace DroneBot.Commands
         [RequirePermissions(Permissions.Administrator)]
         public async Task Desmutar(CommandContext ctx, [Description("Verme a ser desmutado")] DiscordMember user, [Description("Id do canal de voz 1")] DiscordChannel d1, [Description("Id do canal de voz 2")] DiscordChannel d2)
         {
+            CurrentUser = ctx.Member;
             isStopped = false;
-            while (!isStopped)
+            while(!isStopped)
             {
-                await user.PlaceInAsync(d1).ConfigureAwait(false);
-                Thread.Sleep(1500);
-                await user.PlaceInAsync(d2).ConfigureAwait(false);
+                if (user.VoiceState.Channel != null)
+                {
+                    await user.ModifyAsync(x => x.VoiceChannel = d1);
+                    Thread.Sleep(1500);
+                    if (user.VoiceState.Channel != null)
+                    {
+                        await user.ModifyAsync(x => x.VoiceChannel = d2);
+                    }
+                }
+                else
+                {
+                    await ctx.Channel.SendMessageAsync("Usuario não esta em um canal de voz, tentando novamente em 5 segundos");
+                    Thread.Sleep(5000);
+                }
             }
         }
 
@@ -80,7 +93,15 @@ namespace DroneBot.Commands
         [RequirePermissions(Permissions.Administrator)]
         public async Task Stop(CommandContext ctx)
         {
-            isStopped = true;
+            if (CurrentUser != ctx.Member)
+            {
+                await ctx.Channel.SendMessageAsync("Apenas a pessoa que executou o comando pode dar *stop");
+            }
+            else
+            {
+                CurrentUser = null;
+                isStopped = true;
+            }
         }
 
         [Command("MutadoViado")]
@@ -172,7 +193,7 @@ namespace DroneBot.Commands
                     {
                         roles = roles + " `" + role.Name + "`";
                     }
-                    msmembemd.AddField(user.Key.Username,roles, false);
+                    msmembemd.AddField(user.Key.Username, roles, false);
                 }
                 await ctx.Channel.SendMessageAsync(embed: msmembemd);
             }
@@ -181,6 +202,8 @@ namespace DroneBot.Commands
                 await ctx.Channel.SendMessageAsync("Não tem ninguem esperando por cargo!");
             }
         }
+
+       
 
 
 

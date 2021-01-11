@@ -11,9 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DSharpPlus" Version="4.0.0-nightly-00766" />
-    <PackageReference Include="DSharpPlus.CommandsNext" Version="4.0.0-nightly-00766" />
-    <PackageReference Include="DSharpPlus.Interactivity" Version="4.0.0-nightly-00766" />
+    <PackageReference Include="DSharpPlus" Version="4.0.0-nightly-00773" />
+    <PackageReference Include="DSharpPlus.CommandsNext" Version="4.0.0-nightly-00773" />
+    <PackageReference Include="DSharpPlus.Interactivity" Version="4.0.0-nightly-00773" />
+    <PackageReference Include="DSharpPlus.VoiceNext" Version="4.0.0-nightly-00773" />
     <PackageReference Include="System.Windows.Extensions" Version="5.0.0" />
   </ItemGroup>
 
